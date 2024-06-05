@@ -40,12 +40,29 @@ def mergeSort(list_to_sort_by_merge):
 
 
 import matplotlib.pyplot as plt
+import numpy as np
 
 my_list = [54, 26, 93, 17, 77, 31, 44, 55, 20]
-x = range(len(my_list))
-plt.plot(x, my_list)
-plt.show()
+my_list_length = len(my_list)
+x_indices = range(my_list_length)
+y_ticks = np.arange(0, 101, 10)
+
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 6))
+
+ax1.bar(x_indices, my_list, width=0.95)
+ax1.set_title("Barplot of Unsorted List")
+ax1.set_xlabel("Indices")
+ax1.set_ylabel("Values")
+ax1.set_xticks(x_indices)
+ax1.set_yticks(y_ticks)
+
 mergeSort(my_list)
-x = range(len(my_list))
-plt.plot(x, my_list)
+
+ax2.bar(x_indices, my_list, width=0.95)
+ax2.set_title("Barplot of Sorted List")
+ax2.set_xlabel("Indices")
+ax2.set_ylabel("Values")
+ax2.set_xticks(x_indices)
+ax2.set_yticks(y_ticks)
+
 plt.show()
